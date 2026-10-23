@@ -1,0 +1,33 @@
+{
+  "name": "chronos-ops",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "tsx watch backend/src/server.ts",
+    "dev:frontend": "vite",
+    "build": "vite build",
+    "start": "tsx backend/src/server.ts",
+    "test": "tsx --test backend/src/services/calendar.service.test.ts backend/src/services/routine.service.test.ts backend/src/services/task-kpi.service.test.ts test/backend-api.test.ts test/import.test.js",
+    "seed": "tsx scripts/seed.ts",
+    "import:learn": "tsx scripts/import-learn.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "lucide-vue-next": "^1.0.0",
+    "pinia": "^4.1.0",
+    "tsx": "^4.23.15",
+    "vue": "^3.5.44",
+    "vue-router": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.5",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "vite": "^8.3.5"
+  }
+}

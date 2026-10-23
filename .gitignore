@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build and distribution
+dist/
+dist-ssr/
+*.local
+
+# Database files (SQLite)
+db/*.db
+db/*.db-*
+db/*.sqlite
+db/*.sqlite-*
+*.sqlite
+*.db
+!db/.gitkeep
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Test & coverage
+coverage/
+.nyc_output/
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+scratch/
+tmp/
+temp/

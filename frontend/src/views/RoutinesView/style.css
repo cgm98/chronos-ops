@@ -1,0 +1,363 @@
+/* ==========================================================================
+   Routines View Clean Styles (Progressive Disclosure & Refined List)
+   ========================================================================== */
+
+.routines-view {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - 110px);
+  min-height: 560px;
+}
+
+.routines-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.routines-header h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 6px 0 8px 0;
+  color: var(--fg, #f4f0e9);
+}
+
+.routines-header p {
+  color: var(--muted, #aabbb9);
+  font-size: 14px;
+  margin: 0;
+}
+
+.routines-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* --- Contenedor Padre con Scroll para las Rutinas --- */
+.routines-scroll-area {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 8px;
+  padding-bottom: 24px;
+}
+
+.routines-scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.routines-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+.routines-scroll-area::-webkit-scrollbar-thumb {
+  background: var(--border, #2c3e44);
+  border-radius: 999px;
+}
+.routines-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light, #374d55);
+}
+
+/* --- Lista Limpia de Rutinas --- */
+.routines-clean-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.routine-item-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--surface, #18262d);
+  border: 1px solid var(--border, #2c3e44);
+  border-radius: 14px;
+  transition: all 0.18s ease;
+}
+
+.routine-item-card:hover {
+  border-color: #3f555d;
+  background: #1b2b33;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.routine-item-card.is-done {
+  border-color: rgba(141, 212, 183, 0.3);
+  background: rgba(24, 38, 45, 0.65);
+}
+
+.routine-item-card.is-inactive {
+  opacity: 0.65;
+}
+
+/* Checkbox circular de hábito */
+.routine-check-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #4a6168;
+  background: #111d23;
+  color: transparent;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.routine-check-btn:hover {
+  border-color: var(--accent, #e4a876);
+  transform: scale(1.08);
+}
+
+.routine-check-btn.checked {
+  background: var(--success, #8dd4b7);
+  border-color: var(--success, #8dd4b7);
+  color: #0f1c18;
+}
+
+/* Cuerpo central */
+.routine-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.routine-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.routine-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--fg, #f4f0e9);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.routine-item-card.is-done .routine-title {
+  color: #c5d5d1;
+}
+
+.streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #202d33;
+  color: #7d9692;
+  border: 1px solid #33454b;
+}
+
+.streak-badge.has-streak {
+  background: rgba(228, 168, 118, 0.15);
+  border-color: rgba(228, 168, 118, 0.35);
+  color: #f0bd92;
+}
+
+/* Tags de metadatos */
+.routine-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.routine-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: #142026;
+  border: 1px solid #283a40;
+  color: #9ab0aa;
+}
+
+.routine-tag.duration {
+  color: #d8e2df;
+}
+
+.routine-tag.moment {
+  color: #e4b58c;
+  background: #25282c;
+  border-color: #4a423a;
+}
+
+.routine-tag.dependency {
+  color: #a5bdfa;
+  background: #1b2538;
+  border-color: #2e3e5c;
+}
+
+.routine-tag.paused {
+  color: #e58f88;
+  background: rgba(229, 143, 136, 0.12);
+  border-color: rgba(229, 143, 136, 0.25);
+}
+
+.routine-notes {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #a0b5b0;
+  line-height: 1.45;
+}
+
+.routine-anchor {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #8da59f;
+}
+
+.routine-anchor strong {
+  color: #e4a876;
+}
+
+/* Acciones en la tarjeta */
+.routine-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- Selector de Días de la Semana en Modal --- */
+.weekday-selector {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.weekday-chip {
+  padding: 7px 13px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #2c3e44);
+  background: var(--bg-secondary, #111d23);
+  color: var(--muted, #a6bcb7);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.weekday-chip:hover {
+  border-color: var(--accent, #e4a876);
+  color: var(--fg, #f4f0e9);
+}
+
+.weekday-chip.selected {
+  background: var(--accent, #e4a876);
+  border-color: var(--accent, #e4a876);
+  color: #121d23;
+}
+
+[data-theme="light"] .weekday-chip {
+  background: #ffffff;
+  border-color: #dbe3eb;
+  color: #64748b;
+}
+
+[data-theme="light"] .weekday-chip:hover {
+  border-color: var(--accent, #c27838);
+  color: #0f172a;
+}
+
+[data-theme="light"] .weekday-chip.selected {
+  background: var(--accent, #c27838);
+  border-color: var(--accent, #c27838);
+  color: #ffffff;
+}
+
+.checkbox-group {
+  margin-top: 4px;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--fg, #f4f0e9);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent, #e4a876);
+  cursor: pointer;
+}
+
+/* Toast popup */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--surface, #17262c);
+  border: 1px solid var(--border, #374d54);
+  color: var(--fg, #f4f0e9);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10001;
+}
+
+.toast-notification.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-notification.is-error {
+  border-color: var(--danger, #e58f88);
+  color: #fca5a5;
+  background: #261b1e;
+}
+
+@media (max-width: 760px) {
+  .routines-view {
+    height: auto;
+    min-height: 0;
+  }
+  .routines-scroll-area {
+    overflow-y: visible;
+  }
+  .routines-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .routine-item-card {
+    flex-direction: column;
+  }
+  .routine-item-actions {
+    align-self: flex-end;
+    margin-top: 6px;
+  }
+}

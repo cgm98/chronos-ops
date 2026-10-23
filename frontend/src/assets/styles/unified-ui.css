@@ -1,0 +1,297 @@
+/* ==========================================================================
+   Chronos-Ops Unified UI Tokens & Primitives (Buttons, Fields, Modals, Empty)
+   ========================================================================== */
+
+/* --- Botones Unificados --- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--accent, #e4a876);
+  color: #121d23;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 9px;
+  border: 1px solid var(--accent, #e4a876);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(228, 168, 118, 0.25);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--surface, #18262c);
+  color: var(--fg, #d1dedb);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 9px;
+  border: 1px solid var(--border, #2c3e44);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+.btn-secondary:hover {
+  background: var(--bg-hover, #203138);
+  border-color: var(--border-color, #3b5057);
+  color: var(--fg, #f4f0e9);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: transparent;
+  color: var(--muted, #aabbb9);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-ghost:hover {
+  color: var(--fg, #f4f0e9);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-danger-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background: transparent;
+  color: #8b9d99;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-danger-ghost:hover {
+  color: #f28d85;
+  background: rgba(229, 143, 136, 0.12);
+}
+
+/* --- Formulario & Inputs --- */
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--muted, #aabbb9);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg-secondary, #121d23);
+  border: 1px solid var(--border, #2c3e44);
+  border-radius: 9px;
+  color: var(--fg, #f4f0e9);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent, #e4a876);
+  box-shadow: 0 0 0 2px rgba(228, 168, 118, 0.22);
+}
+
+.form-group select option {
+  background: var(--surface, #18262d);
+  color: var(--fg, #f4f0e9);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-dim, #78908d);
+  opacity: 0.75;
+}
+
+/* Indicador de calendario para inputs type="date" */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}
+
+.form-group input.has-error,
+.form-group select.has-error,
+.form-group textarea.has-error {
+  border-color: var(--danger, #e58f88) !important;
+}
+
+.field-error {
+  font-size: 12px;
+  color: var(--danger, #e58f88);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+/* --- Opciones Plegables (Progressive Disclosure) --- */
+.form-collapsible {
+  border-top: 1px solid var(--border, #2c3e44);
+  padding-top: 14px;
+  margin-top: 4px;
+}
+
+.collapsible-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(228, 168, 118, 0.08);
+  border: 1px solid rgba(228, 168, 118, 0.22);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: var(--accent, #e4a876);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.collapsible-trigger:hover {
+  background: rgba(228, 168, 118, 0.16);
+  border-color: var(--accent, #e4a876);
+}
+
+.collapsible-body {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: collapseFadeIn 0.2s ease-out;
+}
+
+@keyframes collapseFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Light theme overrides para formularios unificados */
+[data-theme="light"] .btn-secondary {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+[data-theme="light"] .btn-secondary:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group select,
+[data-theme="light"] .form-group textarea {
+  background: #ffffff;
+  border-color: #dbe3eb;
+  color: #0f172a;
+}
+
+[data-theme="light"] .form-group select option {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+[data-theme="light"] .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: none;
+}
+
+[data-theme="light"] .form-collapsible {
+  border-top-color: #dbe3eb;
+}
+
+[data-theme="light"] .collapsible-trigger {
+  background: rgba(194, 120, 56, 0.08);
+  border-color: rgba(194, 120, 56, 0.25);
+  color: var(--accent, #c27838);
+}
+
+[data-theme="light"] .collapsible-trigger:hover {
+  background: rgba(194, 120, 56, 0.16);
+}
+
+/* --- Estados Vacíos Unificados --- */
+.empty-state {
+  padding: 56px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border, #2c3e44);
+  border-radius: 14px;
+  background: rgba(24, 38, 45, 0.35);
+  margin: 16px 0;
+}
+
+.empty-state-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: rgba(228, 168, 118, 0.12);
+  color: var(--accent, #e4a876);
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.empty-state-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--fg, #f4f0e9);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.empty-state-desc {
+  font-size: 13px;
+  color: var(--muted, #aabbb9);
+  max-width: 420px;
+  line-height: 1.55;
+  margin: 0 0 22px 0;
+}
